@@ -49,22 +49,20 @@
       margin-bottom: 12px;
       font-size: clamp(1.2rem, 4vw, 1.6rem);
     }
-       .timer {
+    .timer {
       display: flex;
       justify-content: center;
       gap: 8px;
-      flex-wrap: nowrap; /* 🔹 Evita que se bajen de línea */
+      flex-wrap: nowrap;
     }
-    
     .timer div {
       background: var(--card);
-      border: 1px solid var(--accent);
+      border: none;
       border-radius: 10px;
       padding: 6px 6px;
-      width: 60px;        /* 🔹 Más angostos */
-      flex-shrink: 0;     /* 🔹 No se achican más de esto */
+      width: 60px;
+      flex-shrink: 0;
     }
-
     .timer span {
       display: block;
       font-family: 'Playfair Display', serif;
@@ -135,6 +133,20 @@
       outline-color: var(--accent);
       background: #fff;
     }
+
+    /* Footer con imagen */
+    .mini-footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 0;
+    }
+    .footer-img {
+      width: 180px;
+      max-width: 90%;
+      height: auto;
+      opacity: 0.9;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -160,7 +172,7 @@
       </div>
       <div id="mapa" style="display:none; margin-top:20px;">
         <iframe class="map" loading="lazy" allowfullscreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.97398852139!2d-58.720262124261886!3d-34.55421397297203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd5265a6977b%3A0xd4a922c192fd21a!2sJano&#39;s%20San%20Miguel!5e0!3m2!1ses-419!2sar!4v1763940405192!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.97398852139!2d-58.720262124261886!3d-34.55421397297203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd5265a6977b%3A0xd4a922c192fd21a!2sJano&#39;s%20San%20Miguel!5e0!3m2!1ses-419!2sar!4v1763940405192!5m2!1ses-419!2sar">
         </iframe>
       </div>
     </section>
@@ -271,6 +283,12 @@
       e.target.textContent = (mapa.style.display === 'block') ? 'Ocultar mapa' : 'Ver en mapa';
     });
   </script>
-</body>
 
+  <footer class="mini-footer">
+    <img src="https://imgur.com/jpKvIEC.jpg" alt="Footer Flor y Guille" class="footer-img">
+  </footer>
+
+</body>
 </html>
+
+
