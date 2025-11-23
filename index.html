@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación – Flor & Guille</title>
+  <meta name="description" content="Invitación digital de Flor y Guille – boda 29 de noviembre de 2026." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f1f1f1;
+      --card: #f1f1f1;
+      --ink: #1d1d1f;
+      --muted: #6b7280;
+      --accent: #c59d7b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 600px; margin: 0 auto; padding: 16px; }
+
+    /* HERO optimizado para celular */
+    header.hero {
+      width: 100%;
+      background: url('https://i.imgur.com/EVpELqy.jpg') center/contain no-repeat;
+      background-color: var(--bg);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .countdown {
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      text-align: center;
+      padding: 24px 16px;
+      margin-top: 16px;
+    }
+    .countdown h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+    }
+    .timer { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .timer div {
+      background: var(--card);
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 10px;
+      width: 80px;
+    }
+    .timer span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 16px;
+    }
+    h2 { font-family: 'Playfair Display', serif; text-align: center; color: var(--accent); }
+    p { margin: 8px 0; }
+    .center { text-align: center; }
+    .pill {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      transition: all .15s ease;
+    }
+    .pill:hover { transform: translateY(-2px); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    @media (min-width: 600px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    .gallery img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    .map { width: 100%; height: 380px; border: 0; border-radius: 16px; }
+
+    details {
+      background: var(--card);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin: 10px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    dialog { border: none; padding: 0; border-radius: 16px; width: 90vw; }
+    dialog::backdrop { background: rgba(0,0,0,.5); }
+    .modal { background: var(--card); padding: 22px; border-radius: 16px; }
+    .field { display: grid; gap: 6px; margin: 12px 0; }
+    input, select, textarea {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font: inherit;
+      outline-color: var(--accent);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero"></header>
+
+    <section class="countdown">
+      <h2>¡Falta cada vez menos!</h2>
+      <div class="timer" id="timer">
+        <div><span id="days">0</span>días</div>
+        <div><span id="hours">0</span>hs</div>
+        <div><span id="minutes">0</span>min</div>
+        <div><span id="seconds">0</span>seg</div>
+      </div>
+    </section>
+
+    <section class="card" id="ubicacion">
+      <h2>Ubicación</h2>
+      <p class="center">Jano's San Miguel</p>
+      <p class="center muted">Dirección: xxxxxx</p>
+      <div class="center" style="margin-top:10px">
+        <a class="pill" href="#" id="toggleMap">Ver en mapa</a>
+      </div>
+      <div id="mapa" style="display:none; margin-top:20px;">
+        <iframe class="map" loading="lazy" allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.606862716359!2d-58.438!3d-34.638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM4JzE2LjgiUyA1OMKwMjYnMTYuOCJX!5e0!3m2!1ses-419!2sar!4v1680000000000">
+        </iframe>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Nuestros momentos</h2>
+      <div class="gallery">
+        <img src="https://i.imgur.com/wFqEQZv.jpg" alt="Flor y Guille 1" loading="lazy"/>
+        <img src="https://i.imgur.com/2vDoLuP.jpg" alt="Flor y Guille 2" loading="lazy"/>
+        <img src="https://i.imgur.com/1IFrU4x.jpg" alt="Flor y Guille 3" loading="lazy"/>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Algunas preguntas que suelen hacernos…</h2>
+      <details>
+        <summary>¿Cómo me visto?</summary>
+        <p>Queremos que te sientas cómodo/a y canchero/a, pero también que se note que es un día especial. 📸 Las fotos van a quedar para siempre, así que: elegante y con onda, pero sin estrés. No olvides que el blanco es de la novia.</p>
+      </details>
+      <details>
+        <summary>¿Qué les regalo?</summary>
+        <p>Tu presencia es nuestro mejor regalo, pero si querés, podés colaborar con nuestra luna de miel 💕</p>
+      </details>
+      <details>
+        <summary>¿Dónde estaciono?</summary>
+        <p>¡Sabemos que no querés andar dando vueltas! En el salón hay espacio para estacionar con comodidad.</p>
+      </details>
+      <p class="center" style="margin-top:20px; font-weight:600; color:var(--accent)">🗓️ Recordá completar el formulario antes del <strong>1 de marzo de 2026</strong>.</p>
+    </section>
+
+    <section class="card center">
+      <h2>Confirmar asistencia</h2>
+      <a href="#rsvp" class="pill" onclick="document.getElementById('rsvpDialog').showModal()">Completar formulario</a>
+    </section>
+
+    <footer class="center" style="color:var(--muted); margin-top:20px">
+      Con cariño, Flor & Guille 💍
+    </footer>
+  </div>
+
+  <dialog id="rsvpDialog">
+    <form method="dialog" class="modal" id="rsvp">
+      <h3 style="margin:0 0 6px;font-family: 'Playfair Display', serif">Confirmar asistencia</h3>
+      <p class="muted">Completá tus datos y ayudanos a organizarnos 💌</p>
+
+      <div class="field">
+        <label>Nombre y Apellido</label>
+        <input required placeholder="Tu nombre" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" required placeholder="nombre@correo.com" />
+      </div>
+      <div class="field">
+        <label>Asistencia</label>
+        <select>
+          <option>Confirmo asistencia</option>
+          <option>No puedo asistir</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>¿Tenés restricciones alimentarias?</label>
+        <select>
+          <option>Ninguna</option>
+          <option>Vegetariano</option>
+          <option>Vegano</option>
+          <option>Celíaco</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Mensaje (opcional)</label>
+        <textarea rows="3" placeholder="¿Algún comentario adicional?"></textarea>
+      </div>
+
+      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px">
+        <button type="button" class="pill outline" onclick="document.getElementById('rsvpDialog').close()">Cerrar</button>
+        <button class="pill" value="submit" onclick="alert('¡Gracias! Guardaremos tu respuesta (demo)')">Enviar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    const targetDate = new Date('November 29, 2026 00:00:00').getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff < 0) {
+        clearInterval(timer);
+        document.getElementById('timer').innerHTML = '¡Hoy es el gran día!';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    }, 1000);
+
+    document.getElementById('toggleMap').addEventListener('click', (e) => {
+      e.preventDefault();
+      const mapa = document.getElementById('mapa');
+      mapa.style.display = (mapa.style.display === 'none' || mapa.style.display === '') ? 'block' : 'none';
+      e.target.textContent = (mapa.style.display === 'block') ? 'Ocultar mapa' : 'Ver en mapa';
+    });
+  </script>
+</body>
+</html>
