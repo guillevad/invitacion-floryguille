@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación – Flor & Guille</title>
   <meta name="description" content="Invitación digital de Flor y Guille – boda 29 de noviembre de 2026." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="sheet">
+  <>
     :root {
       --bg: #f1f1f1;
       --card: #f1f1f1;
@@ -157,6 +157,30 @@
       object-fit: cover;
     }
 
+        /* SCHEDULE */
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      margin: 8px 0;
+      background: #ffffff55;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+
+    .schedule-item .time {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .schedule-item .event {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+
+    
   </style>
 </head>
 <body>
@@ -173,6 +197,35 @@
       </div>
     </section>
 
+    <section class="card" id="cronograma">
+      <h2>Horario</h2>
+      
+      <div class="schedule-item">
+        <span class="time">12:00 hs</span>
+        <span class="event">¡Sí, quiero!</span>
+      </div>
+    
+      <div class="schedule-item">
+        <span class="time">13:00 hs</span>
+        <span class="event">Fiesta</span>
+      </div>
+    </section>
+    
+        <!-- CRONOGRAMA -->
+    <section class="card" id="cronograma">
+      <h2>Horario</h2>
+
+      <div class="schedule-item">
+        <span class="time">12:00 hs</span>
+        <span class="event">¡Sí, quiero!</span>
+      </div>
+
+      <div class="schedule-item">
+        <span class="time">13:00 hs</span>
+        <span class="event">Fiesta</span>
+      </div>
+    </section>
+    
     <section class="card" id="ubicacion">
       <h2>Ubicación</h2>
             <!-- 🔹 Imagen del lugar (antes de la dirección) -->
@@ -293,8 +346,8 @@
     document.getElementById('toggleMap').addEventListener('click', (e) => {
       e.preventDefault();
       const mapa = document.getElementById('mapa');
-      mapa.style.display = (mapa.style.display === 'none' || mapa.style.display === '') ? 'block' : 'none';
-      e.target.textContent = (mapa.style.display === 'block') ? 'Ocultar mapa' : 'Ver en mapa';
+      mapa.style.display = (mapa..display === 'none' || mapa..display === '') ? 'block' : 'none';
+      e.target.textContent = (mapa..display === 'block') ? 'Ocultar mapa' : 'Ver en mapa';
     });
   </script>
 
@@ -304,6 +357,7 @@
 
 </body>
 </html>
+
 
 
 
