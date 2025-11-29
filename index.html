@@ -234,6 +234,16 @@ section.card form button:hover {
   transform: translateY(-2px);
 }
 
+  /* Reducir espacio extra entre cronograma y ubicación */
+#cronograma {
+  margin-bottom: 0 !important;
+}
+
+#cronograma .horario-img {
+  margin-bottom: 0 !important;
+}
+
+  
 </style>
 </head>
 
@@ -256,7 +266,7 @@ section.card form button:hover {
 <!-- CRONOGRAMA COMO IMAGEN -->
 <section class="card" id="cronograma">
   <div class="center" style="margin-top:10px;">
-    <img src="https://imgur.com/LrspF8v.jpg" alt="Horarios del evento" class="horario-img">
+    <img src="https://imgur.com/QoVdNUv.jpg" alt="Horarios del evento" class="horario-img">
   </div>
 </section>
 
@@ -293,14 +303,13 @@ section.card form button:hover {
   <h2>Las dudas más comunes de nuestros invitados…</h2>
 
   <details>
-    <summary>¿Cómo me visto?</summary>
-    <p>Elegante, cómodo/a y canchero/a. El blanco/tiza es exclusivo para la novia.</p>
+    <summary>Dress code</summary>
+    <p>Elegante. ¿Qué significa? Vestido largo para ellas, traje y corbata para ellos. Queremos que te sientas cómodo/a y disfrutes, pero también que se note que es un día especial. Recordá que el blanco y tonos similares están reservados para la novia.</p>
   </details>
 
   <details>
     <summary>¿Qué les regalo?</summary>
-    <p>Lo que más queremos es que estés 💕  
-    Si querés colaborar con nuestra luna de miel:</p>
+    <p>Lo que más queremos es que estés. Sin embargo, si querés colaborar con nuestra luna de miel, te compartimos nuestros datos:</p>
     <p><strong>ARS:</strong> GUI.VADILLO<br>
        <strong>USD:</strong> FUTBOL.ATADO.RASTRO</p>
   </details>
@@ -397,6 +406,7 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
 
