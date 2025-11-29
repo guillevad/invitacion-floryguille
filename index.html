@@ -281,46 +281,53 @@ summary {
 
 <!-- MODAL -->
 <dialog id="rsvpDialog">
-  <form method="dialog" class="modal">
+  <form action="https://formspree.io/f/mdkrqbno" method="POST" class="modal">
 
-    <h3 style="margin:0 0 6px; font-family:'Playfair Display',serif">Confirmar asistencia</h3>
+    <h3 style="margin:0 0 6px;font-family:'Playfair Display',serif">Confirmar asistencia</h3>
     <p class="muted">Completá tus datos 💌</p>
 
     <div class="field">
       <label>Nombre y Apellido</label>
-      <input required placeholder="Tu nombre" />
+      <input required name="nombre" placeholder="Tu nombre" />
     </div>
 
     <div class="field">
       <label>Email</label>
-      <input type="email" required placeholder="nombre@correo.com" />
+      <input type="email" required name="email" placeholder="nombre@correo.com" />
     </div>
 
     <div class="field">
       <label>Asistencia</label>
-      <select><option>Confirmo asistencia</option><option>No puedo asistir</option></select>
+      <select name="asistencia">
+        <option>Confirmo asistencia</option>
+        <option>No puedo asistir</option>
+      </select>
     </div>
 
     <div class="field">
       <label>¿Tenés restricciones alimentarias?</label>
-      <select>
-        <option>Ninguna</option><option>Vegetariano</option>
-        <option>Vegano</option><option>Celíaco</option><option>Otro</option>
+      <select name="restricciones">
+        <option>Ninguna</option>
+        <option>Vegetariano</option>
+        <option>Vegano</option>
+        <option>Celíaco</option>
+        <option>Otro</option>
       </select>
     </div>
 
     <div class="field">
       <label>Mensaje (opcional)</label>
-      <textarea rows="3"></textarea>
+      <textarea name="mensaje" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
     </div>
 
     <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px">
       <button type="button" class="pill outline" onclick="document.getElementById('rsvpDialog').close()">Cerrar</button>
-      <button class="pill">Enviar</button>
+      <button type="submit" class="pill">Enviar</button>
     </div>
 
   </form>
 </dialog>
+
 
 <!-- FOOTER -->
 <footer class="mini-footer">
@@ -356,3 +363,4 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
