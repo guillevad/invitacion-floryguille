@@ -181,6 +181,59 @@ summary {
   border-radius: 0;
   display: block;
 }
+
+  /* Estilo mejorado para el formulario */
+section.card form {
+  margin-top: 18px;
+}
+
+section.card form .field {
+  margin-bottom: 18px;
+}
+
+section.card form label {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+section.card form input,
+section.card form select,
+section.card form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+}
+
+section.card form textarea {
+  resize: none;
+}
+
+section.card form button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 0;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+section.card form button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
 </style>
 </head>
 
@@ -349,5 +402,6 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
