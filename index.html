@@ -268,32 +268,14 @@ summary {
 </section>
 
 <!-- CONFIRMAR -->
-<section class="card center">
+<section class="card">
   <h2>Confirmar asistencia</h2>
-  <a class="pill" onclick="document.getElementById('rsvpDialog').showModal()">Completar formulario</a>
-</section>
 
-<footer class="center" style="color:var(--muted); margin-top:20px;">
-  Con cariño, Flor & Guille 💍
-</footer>
-
-</div>
-
-<!-- MODAL -->
-<dialog id="rsvpDialog">
   <form action="https://formspree.io/f/mdkrqbno" method="POST" class="modal">
-
-    <h3 style="margin:0 0 6px;font-family:'Playfair Display',serif">Confirmar asistencia</h3>
-    <p class="muted">Completá tus datos 💌</p>
 
     <div class="field">
       <label>Nombre y Apellido</label>
       <input required name="nombre" placeholder="Tu nombre" />
-    </div>
-
-    <div class="field">
-      <label>Email</label>
-      <input type="email" required name="email" placeholder="nombre@correo.com" />
     </div>
 
     <div class="field">
@@ -320,13 +302,17 @@ summary {
       <textarea name="mensaje" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
     </div>
 
-    <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px">
-      <button type="button" class="pill outline" onclick="document.getElementById('rsvpDialog').close()">Cerrar</button>
-      <button type="submit" class="pill">Enviar</button>
-    </div>
+    <button type="submit" class="pill" style="margin-top: 10px;">Enviar</button>
 
   </form>
-</dialog>
+</section>
+
+
+<footer class="center" style="color:var(--muted); margin-top:20px;">
+  Con cariño, Flor & Guille 💍
+</footer>
+
+</div>
 
 
 <!-- FOOTER -->
@@ -363,4 +349,5 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
