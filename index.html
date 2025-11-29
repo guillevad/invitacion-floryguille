@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación – Flor & Guille</title>
   <meta name="description" content="Invitación digital de Flor y Guille – boda 29 de noviembre de 2026." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="sheet">
-  <>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
     :root {
       --bg: #f1f1f1;
       --card: #f1f1f1;
@@ -14,7 +15,9 @@
       --muted: #6b7280;
       --accent: #c59d7b;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: Inter, system-ui, sans-serif;
       background: var(--bg);
@@ -22,20 +25,21 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
+
     .wrap { max-width: 600px; margin: 0 auto; padding: 16px; }
 
-    /* HERO optimizado para celular */
+    /* HERO */
     header.hero {
       width: 100%;
       background: url('https://i.imgur.com/sOa0kd5.jpg') center/contain no-repeat;
       background-color: var(--bg);
-      height: 90vh; /* 🔹 reduce la altura del banner */
+      height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-
+    /* COUNTDOWN */
     .countdown {
       background: var(--card);
       border: 1.5px solid var(--accent);
@@ -44,18 +48,21 @@
       padding: 24px 16px;
       margin-top: 16px;
     }
+
     .countdown h2 {
       font-family: 'Playfair Display', serif;
       color: var(--accent);
       margin-bottom: 12px;
       font-size: clamp(1.2rem, 4vw, 1.6rem);
     }
+
     .timer {
       display: flex;
       justify-content: center;
       gap: 8px;
       flex-wrap: nowrap;
     }
+
     .timer div {
       background: var(--card);
       border: none;
@@ -64,6 +71,7 @@
       width: 60px;
       flex-shrink: 0;
     }
+
     .timer span {
       display: block;
       font-family: 'Playfair Display', serif;
@@ -71,15 +79,19 @@
       color: var(--accent);
     }
 
+    /* GENERAL CARD */
     .card {
       background: var(--card);
       border-radius: 20px;
       padding: 20px;
       margin-top: 16px;
     }
+
     h2 { font-family: 'Playfair Display', serif; text-align: center; color: var(--accent); }
+
     p { margin: 8px 0; }
     .center { text-align: center; }
+
     .pill {
       display: inline-block;
       padding: 10px 16px;
@@ -90,16 +102,20 @@
       font-weight: 600;
       transition: all .15s ease;
     }
+
     .pill:hover { transform: translateY(-2px); }
 
+    /* GALLERY */
     .gallery {
       display: grid;
       grid-template-columns: 1fr;
       gap: 8px;
     }
+
     @media (min-width: 600px) {
       .gallery { grid-template-columns: repeat(3, 1fr); }
     }
+
     .gallery img {
       width: 100%;
       height: 400px;
@@ -107,8 +123,10 @@
       border-radius: 14px;
     }
 
+    /* MAP */
     .map { width: 100%; height: 380px; border: 0; border-radius: 16px; }
 
+    /* DETAILS */
     details {
       background: var(--card);
       border: 1px solid #ddd;
@@ -116,16 +134,21 @@
       padding: 10px 14px;
       margin: 10px 0;
     }
+
     summary {
       cursor: pointer;
       font-weight: 600;
       color: var(--accent);
     }
 
+    /* MODAL */
     dialog { border: none; padding: 0; border-radius: 16px; width: 90vw; }
     dialog::backdrop { background: rgba(0,0,0,.5); }
+
     .modal { background: var(--card); padding: 22px; border-radius: 16px; }
+
     .field { display: grid; gap: 6px; margin: 12px 0; }
+
     input, select, textarea {
       padding: 12px 14px;
       border-radius: 10px;
@@ -135,20 +158,8 @@
       background: #fff;
     }
 
-    /* Footer con imagen */
-    .mini-footer {
-      text-align: center;
-      margin-top: 30px;
-      padding: 20px 0;
-    }
-    .footer-img {
-      width: 100%;
-      max-width: 120vh;
-      height: cover;
-      opacity: block;
-      border-radius: 0;
-    }
-        .lugar-img {
+    /* LUGAR IMG */
+    .lugar-img {
       width: 100%;
       max-width: 500px;
       border-radius: 12px;
@@ -157,7 +168,7 @@
       object-fit: cover;
     }
 
-        /* SCHEDULE */
+    /* CRONOGRAMA */
     .schedule-item {
       display: flex;
       justify-content: space-between;
@@ -179,12 +190,28 @@
       color: var(--ink);
     }
 
+    /* FOOTER EXACTO COMO LO TENÍAS */
+    .mini-footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 0;
+    }
 
-    
+    .footer-img {
+      width: 100%;
+      max-width: 120vh;
+      height: auto;     /* corregido: height: cover NO existe */
+      opacity: 1;       /* corregido: opacity: block NO existe */
+      border-radius: 0;
+      display: block;
+    }
+
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <header class="hero"></header>
 
     <section class="countdown">
@@ -199,47 +226,27 @@
 
     <section class="card" id="cronograma">
       <h2>Horario</h2>
-      
-      <div class="schedule-item">
-        <span class="time">12:00 hs</span>
-        <span class="event">¡Sí, quiero!</span>
-      </div>
-    
-      <div class="schedule-item">
-        <span class="time">13:00 hs</span>
-        <span class="event">Fiesta</span>
-      </div>
+      <div class="schedule-item"><span class="time">12:00 hs</span><span class="event">¡Sí, quiero!</span></div>
+      <div class="schedule-item"><span class="time">13:00 hs</span><span class="event">Fiesta</span></div>
     </section>
-    
-        <!-- CRONOGRAMA -->
-    <section class="card" id="cronograma">
-      <h2>Horario</h2>
 
-      <div class="schedule-item">
-        <span class="time">12:00 hs</span>
-        <span class="event">¡Sí, quiero!</span>
-      </div>
-
-      <div class="schedule-item">
-        <span class="time">13:00 hs</span>
-        <span class="event">Fiesta</span>
-      </div>
-    </section>
-    
     <section class="card" id="ubicacion">
       <h2>Ubicación</h2>
-            <!-- 🔹 Imagen del lugar (antes de la dirección) -->
+
       <div class="center" style="margin-top:10px;">
-        <img src="https://imgur.com/dKzDEgR.jpg" alt="Foto del lugar del evento" class="lugar-img">
+        <img src="https://i.imgur.com/dKzDEgR.jpg" alt="Foto del lugar" class="lugar-img">
       </div>
+
       <p class="center">Jano's San Miguel</p>
       <p class="center muted">Av. Gaspar Campos 2800, San Miguel, Provincia de Buenos Aires.</p>
-      <div class="center" style="margin-top:10px">
+
+      <div class="center" style="margin-top:10px;">
         <a class="pill" href="#" id="toggleMap">Ver en mapa</a>
       </div>
+
       <div id="mapa" style="display:none; margin-top:20px;">
-        <iframe class="map" loading="lazy" allowfullscreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.97398852139!2d-58.720262124261886!3d-34.55421397297203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd5265a6977b%3A0xd4a922c192fd21a!2sJano&#39;s%20San%20Miguel!5e0!3m2!1ses-419!2sar!4v1763940405192!5m2!1ses-419!2sar">
+        <iframe class="map" loading="lazy"
+         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.9739!2d-58.72026!3d-34.55421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd5265a6977b%3A0xd4a922c192fd21a!2sJano&#39;s%20San%20Miguel!5e0!3m2!1ses-419!2sar!4v1763940405192!5m2!1ses-419!2sar">
         </iframe>
       </div>
     </section>
@@ -247,120 +254,118 @@
     <section class="card">
       <h2>Nuestros momentos</h2>
       <div class="gallery">
-        <img src="https://i.imgur.com/wFqEQZv.jpg" alt="Flor y Guille 1" loading="lazy"/>
-        <img src="https://i.imgur.com/2vDoLuP.jpg" alt="Flor y Guille 2" loading="lazy"/>
-        <img src="https://i.imgur.com/1IFrU4x.jpg" alt="Flor y Guille 3" loading="lazy"/>
+        <img src="https://i.imgur.com/wFqEQZv.jpg" loading="lazy">
+        <img src="https://i.imgur.com/2vDoLuP.jpg" loading="lazy">
+        <img src="https://i.imgur.com/1IFrU4x.jpg" loading="lazy">
       </div>
     </section>
 
     <section class="card">
       <h2>Algunas preguntas que suelen hacernos…</h2>
+
       <details>
         <summary>¿Cómo me visto?</summary>
-        <p>Queremos que te sientas cómodo/a y canchero/a, pero también que se note que es un día especial. 📸 Las fotos van a quedar para siempre, así que: elegante y con onda, pero sin estrés. No olvides que el blanco es de la novia.</p>
+        <p>Queremos que te sientas cómodo/a y canchero/a, pero elegante. El blanco es exclusivo de la novia.</p>
       </details>
+
       <details>
         <summary>¿Qué les regalo?</summary>
-        <p>Tu presencia es nuestro mejor regalo, pero si querés, podés colaborar con nuestra luna de miel 💕</p>
+        <p>Tu presencia es nuestro mejor regalo. Si querés colaborar, será para la luna de miel 💕</p>
       </details>
+
       <details>
         <summary>¿Dónde estaciono?</summary>
-        <p>¡Sabemos que no querés andar dando vueltas! En el salón hay espacio para estacionar con comodidad.</p>
+        <p>El salón cuenta con estacionamiento amplio y cómodo.</p>
       </details>
-      <p class="center" style="margin-top:20px; font-weight:600; color:var(--accent)">🗓️ Recordá completar el formulario antes del <strong>1 de marzo de 2026</strong>.</p>
+
+      <p class="center" style="margin-top:20px; font-weight:600; color:var(--accent)">
+        🗓️ Recordá confirmar antes del <strong>1 de marzo de 2026</strong>.
+      </p>
+
     </section>
 
     <section class="card center">
       <h2>Confirmar asistencia</h2>
-      <a href="#rsvp" class="pill" onclick="document.getElementById('rsvpDialog').showModal()">Completar formulario</a>
+      <a class="pill" onclick="document.getElementById('rsvpDialog').showModal()">Completar formulario</a>
     </section>
 
-    <footer class="center" style="color:var(--muted); margin-top:20px">
+    <footer class="center" style="color:var(--muted); margin-top:20px;">
       Con cariño, Flor & Guille 💍
     </footer>
+
   </div>
 
+  <!-- MODAL -->
   <dialog id="rsvpDialog">
-    <form method="dialog" class="modal" id="rsvp">
-      <h3 style="margin:0 0 6px;font-family: 'Playfair Display', serif">Confirmar asistencia</h3>
-      <p class="muted">Completá tus datos y ayudanos a organizarnos 💌</p>
+    <form method="dialog" class="modal">
+
+      <h3 style="margin:0 0 6px; font-family:'Playfair Display',serif">Confirmar asistencia</h3>
+      <p class="muted">Completá tus datos 💌</p>
 
       <div class="field">
         <label>Nombre y Apellido</label>
         <input required placeholder="Tu nombre" />
       </div>
+
       <div class="field">
         <label>Email</label>
         <input type="email" required placeholder="nombre@correo.com" />
       </div>
+
       <div class="field">
         <label>Asistencia</label>
-        <select>
-          <option>Confirmo asistencia</option>
-          <option>No puedo asistir</option>
-        </select>
+        <select><option>Confirmo asistencia</option><option>No puedo asistir</option></select>
       </div>
+
       <div class="field">
         <label>¿Tenés restricciones alimentarias?</label>
         <select>
-          <option>Ninguna</option>
-          <option>Vegetariano</option>
-          <option>Vegano</option>
-          <option>Celíaco</option>
-          <option>Otro</option>
+          <option>Ninguna</option><option>Vegetariano</option>
+          <option>Vegano</option><option>Celíaco</option><option>Otro</option>
         </select>
       </div>
+
       <div class="field">
         <label>Mensaje (opcional)</label>
-        <textarea rows="3" placeholder="¿Algún comentario adicional?"></textarea>
+        <textarea rows="3"></textarea>
       </div>
 
       <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px">
         <button type="button" class="pill outline" onclick="document.getElementById('rsvpDialog').close()">Cerrar</button>
-        <button class="pill" value="submit" onclick="alert('¡Gracias! Guardaremos tu respuesta (demo)')">Enviar</button>
+        <button class="pill">Enviar</button>
       </div>
+
     </form>
   </dialog>
 
+  <!-- FOOTER EXACTO COMO LO TENÍAS -->
+  <footer class="mini-footer">
+    <img src="https://i.imgur.com/LhNB6vZ.jpg" alt="Footer Flor y Guille" class="footer-img">
+  </footer>
+
   <script>
     const targetDate = new Date('November 29, 2026 00:00:00').getTime();
-    const timer = setInterval(() => {
+
+    setInterval(() => {
       const now = new Date().getTime();
       const diff = targetDate - now;
-      if (diff < 0) {
-        clearInterval(timer);
-        document.getElementById('timer').innerHTML = '¡Hoy es el gran día!';
-        return;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById('days').innerText = days;
-      document.getElementById('hours').innerText = hours;
-      document.getElementById('minutes').innerText = minutes;
-      document.getElementById('seconds').innerText = seconds;
+      if (diff < 0) return timer.innerHTML = "¡Hoy es el gran día!";
+
+      days.innerText = Math.floor(diff / (1000*60*60*24));
+      hours.innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      minutes.innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
+      seconds.innerText = Math.floor((diff % (1000*60)) / 1000);
     }, 1000);
 
     document.getElementById('toggleMap').addEventListener('click', (e) => {
       e.preventDefault();
       const mapa = document.getElementById('mapa');
-      mapa.style.display = (mapa..display === 'none' || mapa..display === '') ? 'block' : 'none';
-      e.target.textContent = (mapa..display === 'block') ? 'Ocultar mapa' : 'Ver en mapa';
+
+      mapa.style.display = (mapa.style.display === 'none' ? 'block' : 'none');
+      e.target.textContent = mapa.style.display === 'block' ? "Ocultar mapa" : "Ver en mapa";
     });
   </script>
 
-  <footer class="mini-footer">
-    <img src="https://imgur.com/LhNB6vZ.jpg" alt="Footer Flor y Guille" class="footer-img">
-  </footer>
-
 </body>
 </html>
-
-
-
-
-
-
-
