@@ -166,20 +166,20 @@ summary {
   object-fit: cover;
 }
 
-/* FOOTER */
+/* FOOTER DE IMAGEN */
 .mini-footer {
   text-align: center;
-  margin-top: 30px;
-  padding: 20px 0;
+  margin-top: 0px;      /* antes era 30px */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .footer-img {
   width: 100%;
-  max-width: 120vh;
-  height: auto;
-  opacity: 1;
-  border-radius: 0;
+  max-width: 500px;     /* controla tamaño en compu */
+  margin: 0 auto;       /* centra la imagen SIEMPRE */
   display: block;
+  height: auto;
 }
 
   /* Estilo mejorado para el formulario */
@@ -406,6 +406,7 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
 
