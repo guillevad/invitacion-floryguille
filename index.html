@@ -328,8 +328,13 @@ section.card form button:hover {
 <section class="card">
   <h2>Confirmar asistencia</h2>
 
-  <form action="https://formspree.io/f/mdkrqbno" method="POST" class="modal">
+  <form action="https://formsubmit.co/vadilloguillermo@gmail.com" method="POST">
 
+    <!-- PASO 4: Campos ocultos -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- Campos del formulario -->
     <div class="field">
       <label>Nombre y Apellido</label>
       <input required name="nombre" placeholder="Tu nombre" />
@@ -363,6 +368,7 @@ section.card form button:hover {
 
   </form>
 </section>
+
 
 
 <footer class="center" style="color:var(--muted); margin-top:20px;">
@@ -406,6 +412,7 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
 
