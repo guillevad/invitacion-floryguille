@@ -331,51 +331,62 @@ section.card form button:hover {
 <section class="card">
   <h2>Confirmar asistencia</h2>
 
-  <form action="https://formsubmit.co/vadilloguillermo@gmail.com" method="POST">
+ <form 
+  action="https://docs.google.com/forms/d/e/1FAIpQLScAwsr6vHJzlAAr7bmrpp4KIgJp--gB9vsOa8pDK86NuFsQIw/formResponse" 
+  method="POST" 
+  target="hidden_iframe"
+  onsubmit="submitted=true;"
+>
 
-    <!-- PASO 4: Campos ocultos -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://boda-flor-y-guille.vercel.app/gracias.html">
+  <!-- Nombre -->
+  <div class="field">
+    <label>Nombre y Apellido</label>
+    <input required name="entry.2125035059" placeholder="Tu nombre" />
+  </div>
 
-    <input type="hidden" name="_origin" value="https://boda-flor-y-guille.vercel.app">
+  <!-- Asistencia -->
+  <div class="field">
+    <label>Asistencia</label>
+    <select name="entry.1940079882">
+      <option>Confirmo asistencia</option>
+      <option>No puedo asistir</option>
+    </select>
+  </div>
 
-    <input type="hidden" name="_submit" value="Submit">
+  <!-- Restricciones -->
+  <div class="field">
+    <label>¿Tenés restricciones alimentarias?</label>
+    <select name="entry.2045456824">
+      <option>Ninguna</option>
+      <option>Vegetariano</option>
+      <option>Vegano</option>
+      <option>Celíaco</option>
+      <option>Otro</option>
+    </select>
+  </div>
 
-    <!-- Campos del formulario -->
-    <div class="field">
-      <label>Nombre y Apellido</label>
-      <input required name="nombre" placeholder="Tu nombre" />
-    </div>
+  <!-- Mensaje -->
+  <div class="field">
+    <label>Mensaje (opcional)</label>
+    <textarea name="entry.1664722925" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
+  </div>
 
-    <div class="field">
-      <label>Asistencia</label>
-      <select name="asistencia">
-        <option>Confirmo asistencia</option>
-        <option>No puedo asistir</option>
-      </select>
-    </div>
+  <button type="submit" class="pill" style="margin-top: 10px;">Enviar</button>
 
-    <div class="field">
-      <label>¿Tenés restricciones alimentarias?</label>
-      <select name="restricciones">
-        <option>Ninguna</option>
-        <option>Vegetariano</option>
-        <option>Vegano</option>
-        <option>Celíaco</option>
-        <option>Otro</option>
-      </select>
-    </div>
+</form>
 
-    <div class="field">
-      <label>Mensaje (opcional)</label>
-      <textarea name="mensaje" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
-    </div>
+<!-- iframe oculto para evitar redirección a Google -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-    <button type="submit" class="pill" style="margin-top: 10px;">Enviar</button>
+<script>
+  let submitted = false;
+  document.getElementById("hidden_iframe").onload = function () {
+    if (submitted) {
+      window.location.href = "https://boda-flor-y-guille.vercel.app/gracias.html";
+    }
+  };
+</script>
 
-  </form>
-</section>
 
 
 
@@ -420,6 +431,7 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
 
