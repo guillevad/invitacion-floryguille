@@ -331,7 +331,7 @@ section.card form button:hover {
 <section class="card">
   <h2>Confirmar asistencia</h2>
 
- <form 
+<form 
   action="https://docs.google.com/forms/d/e/1FAIpQLScAwsr6vHJzlAAr7bmrpp4KIgJp--gB9vsOa8pDK86NuFsQIw/formResponse" 
   method="POST" 
   target="hidden_iframe"
@@ -341,13 +341,13 @@ section.card form button:hover {
   <!-- Nombre -->
   <div class="field">
     <label>Nombre y Apellido</label>
-    <input required name="entry.2125035059" placeholder="Tu nombre" />
+    <input required name="entry.361883027" placeholder="Tu nombre" />
   </div>
 
   <!-- Asistencia -->
   <div class="field">
     <label>Asistencia</label>
-    <select name="entry.1940079882">
+    <select name="entry.553754889">
       <option>Confirmo asistencia</option>
       <option>No puedo asistir</option>
     </select>
@@ -356,7 +356,7 @@ section.card form button:hover {
   <!-- Restricciones -->
   <div class="field">
     <label>¿Tenés restricciones alimentarias?</label>
-    <select name="entry.2045456824">
+    <select name="entry.885898436">
       <option>Ninguna</option>
       <option>Vegetariano</option>
       <option>Vegano</option>
@@ -368,12 +368,25 @@ section.card form button:hover {
   <!-- Mensaje -->
   <div class="field">
     <label>Mensaje (opcional)</label>
-    <textarea name="entry.1664722925" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
+    <textarea name="entry.1359233295" rows="3" placeholder="Lo que quieras contarnos :)"></textarea>
   </div>
 
   <button type="submit" class="pill" style="margin-top: 10px;">Enviar</button>
 
 </form>
+
+<!-- iframe oculto para evitar redirección a Google Forms -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  let submitted = false;
+  document.getElementById("hidden_iframe").onload = function () {
+    if (submitted) {
+      window.location.href = "https://boda-flor-y-guille.vercel.app/gracias.html";
+    }
+  };
+</script>
+
 
 <!-- iframe oculto para evitar redirección a Google -->
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -431,6 +444,7 @@ document.getElementById('toggleMap').addEventListener('click', (e) => {
 
 </body>
 </html>
+
 
 
 
