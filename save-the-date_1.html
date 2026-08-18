@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Save the Date – Flor & Guille</title>
+<meta name="description" content="Faltan 30 días para la boda de Flor y Guille – 29 de noviembre de 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --ink: #2b2620;
+    --muted: #8a7f72;
+    --accent: #c59d7b;
+    --accent-dark: #a67c56;
+    --line: rgba(197,157,123,0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 0 20px 40px; }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: -4%;
+    background: url('https://imgur.com/29LUw0d.jpg') center 25%/cover no-repeat;
+    animation: kenburns 22s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.09); }
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(43,38,32,0) 35%, rgba(43,38,32,.55) 78%, rgba(43,38,32,.82) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px 56px;
+    color: #fff;
+    animation: fadeUp 1.4s ease both;
+  }
+  .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .45em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #f1e6d8;
+    margin-bottom: 14px;
+  }
+  .hero-names {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 18px rgba(0,0,0,.25);
+  }
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-size: .82rem;
+    color: #f1e6d8;
+  }
+  .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 22px;
+    height: 34px;
+    border: 1.5px solid rgba(255,255,255,.75);
+    border-radius: 14px;
+  }
+  .scroll-cue::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 50%;
+    width: 4px; height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: scrollDot 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollDot {
+    0% { opacity: 1; top: 6px; }
+    70% { opacity: 0; top: 18px; }
+    100% { opacity: 0; top: 18px; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- ORNAMENT / DIVIDER ---------- */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 38px 0 30px;
+    color: var(--accent);
+  }
+  .divider .ln { flex: 1; max-width: 90px; height: 1px; background: var(--line); }
+  .divider svg {
+    width: 20px; height: 20px; flex-shrink: 0;
+    animation: spinGlow 7s linear infinite;
+    transform-origin: center;
+  }
+  @keyframes spinGlow {
+    0% { transform: rotate(0deg) scale(1); opacity: .85; }
+    50% { transform: rotate(180deg) scale(1.12); opacity: 1; }
+    100% { transform: rotate(360deg) scale(1); opacity: .85; }
+  }
+
+  /* ---------- SAVE THE DATE BANNER ---------- */
+  .save-banner {
+    text-align: center;
+    padding-top: 46px;
+  }
+  .save-banner .tag {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    color: var(--accent-dark);
+    margin-bottom: 8px;
+  }
+  .save-banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    color: var(--ink);
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    text-align: center;
+    padding: 32px 18px 28px;
+    margin-top: 26px;
+    box-shadow: 0 18px 40px -22px rgba(43,38,32,.25);
+  }
+  .countdown p.lead {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .countdown p.lead strong {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent-dark);
+    font-size: 1.3rem;
+  }
+  .timer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+  }
+  .timer div {
+    background: #fffdfa;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 6px 10px;
+    width: 72px;
+    flex-shrink: 0;
+    transition: transform .25s ease;
+  }
+  .timer span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+  }
+  .timer em {
+    display: block;
+    font-style: normal;
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .date-line {
+    margin-top: 22px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--ink);
+    font-size: 1.05rem;
+  }
+
+  /* ---------- MESSAGE ---------- */
+  .message {
+    text-align: center;
+    padding: 6px 8px 0;
+  }
+  .message p {
+    font-size: 1.18rem;
+    color: var(--ink);
+  }
+  .message .signature {
+    margin-top: 18px;
+    font-family: 'Parisienne', cursive;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .gallery-strip .frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 14px 30px -18px rgba(43,38,32,.35);
+  }
+  .gallery-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+  }
+  .gallery-strip .frame:hover img { transform: scale(1.06); }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    text-align: center;
+    padding-top: 8px;
+  }
+  .cta .pill {
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .05em;
+    font-size: 1rem;
+    transition: all .2s ease;
+    box-shadow: 0 14px 26px -14px rgba(166,124,86,.65);
+  }
+  .cta .pill:hover { transform: translateY(-2px); background: var(--accent-dark); }
+  .cta p.note {
+    margin-top: 14px;
+    font-size: .95rem;
+    color: var(--muted);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.mini {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 6px;
+  }
+  footer.mini .flourish {
+    width: 26px; height: 26px;
+    margin: 0 auto 14px;
+    color: var(--accent);
+    animation: spinGlow 7s linear infinite;
+  }
+  footer.mini p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+
+  section { padding-top: 6px; }
+  .card-section { margin-top: 44px; }
+
+  @media (min-width: 480px) {
+    .timer div { width: 80px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg, .divider svg, footer.mini .flourish { animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Save the Date</div>
+      <div class="hero-names">Flor &amp; Guille</div>
+      <div class="hero-sub">29 · 11 · 2026 — San Miguel, Buenos Aires</div>
+    </div>
+    <div class="scroll-cue"></div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="save-banner reveal">
+      <div class="tag">Ya casi llega el día</div>
+      <h1>El conteo final ya empezó</h1>
+    </section>
+
+    <section class="countdown reveal">
+      <p class="lead">Faltan solo <strong id="daysHeadline">30</strong> días</p>
+      <div class="timer" id="timer">
+        <div><span id="days">00</span><em>días</em></div>
+        <div><span id="hours">00</span><em>hs</em></div>
+        <div><span id="minutes">00</span><em>min</em></div>
+        <div><span id="seconds">00</span><em>seg</em></div>
+      </div>
+      <p class="date-line">Domingo 29 de noviembre de 2026</p>
+    </section>
+
+    <div class="divider">
+      <span class="ln"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M12 3l1.8 5.6L19.4 10.5 13.8 12.4 12 18l-1.8-5.6L4.6 10.5 10.2 8.6z"/>
+      </svg>
+      <span class="ln"></span>
+    </div>
+
+    <section class="message reveal">
+      <p>Después de tanto soñarlo, ya casi es real. En un mes vamos a poder abrazarnos, brindar y bailar hasta que salga el sol — y no imaginamos mejor forma de celebrarlo que rodeados de las personas que más queremos.</p>
+      <p class="signature">Con amor, Flor y Guille</p>
+    </section>
+
+    <section class="card-section reveal">
+      <div class="gallery-strip">
+        <div class="frame"><img src="https://imgur.com/DcUWmpu.jpg" alt="Flor y Guille" loading="lazy" /></div>
+        <div class="frame"><img src="https://imgur.com/L9LeN6k.jpg" alt="Flor y Guille" loading="lazy" /></div>
+        <div class="frame"><img src="https://imgur.com/usiOqTh.jpg" alt="Flor y Guille" loading="lazy" /></div>
+        <div class="frame"><img src="https://imgur.com/yzGUVTV.jpg" alt="Flor y Guille" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <span class="ln"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M12 3l1.8 5.6L19.4 10.5 13.8 12.4 12 18l-1.8-5.6L4.6 10.5 10.2 8.6z"/>
+      </svg>
+      <span class="ln"></span>
+    </div>
+
+    <section class="cta reveal">
+      <a class="pill" href="https://boda-flor-y-guille.vercel.app/" target="_blank" rel="noopener">Ver invitación completa</a>
+      <p class="note">Ahí vas a encontrar la ubicación, el cronograma y el link para confirmar tu asistencia.</p>
+    </section>
+
+    <footer class="mini reveal">
+      <svg class="flourish" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M12 3l1.8 5.6L19.4 10.5 13.8 12.4 12 18l-1.8-5.6L4.6 10.5 10.2 8.6z"/>
+      </svg>
+      <p>Nos vemos muy pronto 💛</p>
+    </footer>
+
+  </div>
+
+<script>
+  const targetDate = new Date('November 29, 2026 00:00:00').getTime();
+  const timerEl = document.getElementById('timer');
+  const tick = () => {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+    if (diff < 0) {
+      clearInterval(interval);
+      timerEl.innerHTML = '<div style="width:100%"><span>¡Hoy es el gran día!</span></div>';
+      document.getElementById('daysHeadline').textContent = '0';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    document.getElementById('daysHeadline').textContent = days;
+  };
+  tick();
+  const interval = setInterval(tick, 1000);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
