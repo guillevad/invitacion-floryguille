@@ -56,7 +56,7 @@ body.locked { overflow: hidden; height: 100vh; }
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://i.imgur.com/u3Efiak.jpg') center/cover no-repeat;
+  background: url('https://i.imgur.com/sOa0kd5.jpg') center/cover no-repeat;
   filter: blur(6px) saturate(.9);
   transform: scale(1.1);
   opacity: .5;
@@ -238,61 +238,6 @@ summary {
   font-weight: 600;
   color: var(--accent);
 }
-/* ---------- TÍTULOS DE SECCIÓN ---------- */
-.titulo-seccion {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  font-size: clamp(1.1rem, 4.4vw, 1.35rem);
-  color: var(--ink);
-  line-height: 1.3;
-}
-.titulo-seccion .script {
-  font-family: 'Parisienne', cursive;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 1.5em;
-  color: var(--accent);
-  vertical-align: -.12em;
-  margin: 0 .12em;
-}
-.orn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 14px auto 22px;
-  max-width: 220px;
-  color: var(--accent);
-}
-.orn .ln { flex: 1; height: 1px; background: rgba(197,157,123,.45); }
-.orn .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .8; }
-
-/* ---------- UBICACIÓN ---------- */
-.lugar { text-align: center; }
-.lugar .nombre {
-  font-family: 'Parisienne', cursive;
-  font-size: clamp(2rem, 8vw, 2.6rem);
-  color: var(--ink);
-  line-height: 1.2;
-}
-.lugar .direccion {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  font-size: .78rem;
-  color: var(--muted);
-  margin-top: 10px;
-  line-height: 1.8;
-}
-.lugar .extra {
-  font-size: .95rem;
-  color: var(--muted);
-  max-width: 400px;
-  margin: 16px auto 0;
-}
 /* ---------- SECCIONES NUEVAS (SPOTIFY / FOTOS) ---------- */
 .accion {
   text-align: center;
@@ -335,8 +280,21 @@ summary {
 }
 #cronograma { padding-bottom: 8px; }
 
+/* ---------- APARICIÓN AL SCROLLEAR ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 1s ease, transform 1s ease;
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gate-btn, .gate-inner { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 </style>
 </head>
@@ -373,7 +331,7 @@ summary {
 <header class="hero"></header>
 
 <!-- COUNTDOWN -->
-<section class="countdown">
+<section class="countdown reveal">
   <h2>¡Falta cada vez menos!</h2>
   <div class="timer" id="timer">
     <div><span id="days">0</span>días</div>
@@ -385,22 +343,13 @@ summary {
 
 <!-- ITINERARIO (IMAGEN) -->
 <!-- 👇 Reemplazá TU_CODIGO por el código que te dé Imgur al subir la imagen del itinerario -->
-<section class="card" id="cronograma">
-  <img src="https://i.imgur.com/jcmQXDQ.jpg" alt="Itinerario de la boda" class="itinerario-img">
+<section class="card reveal" id="cronograma">
+  <img src="https://i.imgur.com/TU_CODIGO.jpg" alt="Itinerario de la boda" class="itinerario-img">
 </section>
 
-<!-- UBICACION -->
-<section class="card" id="ubicacion">
-  <h2 class="titulo-seccion">Ubicación</h2>
-  <div class="orn"><span class="ln"></span><span class="dot"></span><span class="ln"></span></div>
-
-  <div class="lugar">
-    <div class="nombre">Jano's San Miguel</div>
-    <p class="extra">Ceremonia y fiesta son en el mismo lugar.</p>
-    <div style="margin-top:18px;">
-      <a class="pill" href="#" id="toggleMap">Ver en mapa</a>
-    </div>
-  </div>
+<!-- VER EN MAPA -->
+<section class="card center reveal" id="ubicacion">
+  <a class="pill" href="#" id="toggleMap">Ver en mapa</a>
   <div id="mapa" style="display:none; margin-top:20px;">
     <iframe class="map" loading="lazy"
      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.9739!2d-58.72026!3d-34.55421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd5265a6977b%3A0xd4a922c192fd21a!2sJano&#39;s%20San%20Miguel!5e0!3m2!1ses-419!2sar!4v1763940405192!5m2!1ses-419!2sar">
@@ -409,7 +358,7 @@ summary {
 </section>
 
 <!-- PREGUNTAS -->
-<section class="card">
+<section class="card reveal">
   <h2>Las dudas más comunes de nuestros invitados…</h2>
   <details>
     <summary>Dress code</summary>
@@ -431,7 +380,7 @@ summary {
 </section>
 
 <!-- PLAYLIST DE SPOTIFY -->
-<section class="card accion">
+<section class="card accion reveal">
   <div class="icono">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M9 18V5l11-2v13"/>
@@ -445,7 +394,7 @@ summary {
 </section>
 
 <!-- ÁLBUM DE GOOGLE FOTOS -->
-<section class="card accion">
+<section class="card accion reveal">
   <div class="icono">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2L9 4h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/>
@@ -457,14 +406,14 @@ summary {
   <a class="pill" href="https://photos.app.goo.gl/mzPhEySPvmqvqXUFA" target="_blank" rel="noopener">Abrir el álbum compartido</a>
 </section>
 
-<footer class="center" style="color:var(--muted); margin-top:24px;">
+<footer class="center reveal" style="color:var(--muted); margin-top:24px;">
   Con cariño, Flor &amp; Guille 💍
 </footer>
 
 </div><!-- /wrap -->
 
 <!-- FOOTER -->
-<footer class="mini-footer">
+<footer class="mini-footer reveal">
   <img src="https://i.imgur.com/LhNB6vZ.jpg" alt="Footer Flor y Guille" class="footer-img">
 </footer>
 </div><!-- /contenido -->
@@ -499,6 +448,7 @@ document.getElementById('entrarBtn').addEventListener('click', () => {
     });
   }
   setTimeout(() => { gate.style.display = 'none'; }, 950);
+  pedirChequeo();
 });
 
 musicToggle.addEventListener('click', () => {
@@ -527,6 +477,36 @@ setInterval(() => {
   minutes.innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
   seconds.innerText = Math.floor((diff % (1000*60)) / 1000);
 }, 1000);
+
+/* ---------- APARICIÓN AL SCROLLEAR ---------- */
+const reveals = Array.from(document.querySelectorAll('.reveal'));
+let ticking = false;
+
+function chequearReveals() {
+  ticking = false;
+  // Si ya llegamos al final de la página, mostramos todo lo que quede.
+  const alFinal = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 4);
+  const limite = alFinal ? Infinity : window.innerHeight - 40;
+  for (let i = reveals.length - 1; i >= 0; i--) {
+    const el = reveals[i];
+    // Se muestra apenas su borde superior entra en pantalla,
+    // o si ya quedó por encima (scroll rápido, recarga a mitad de página).
+    if (el.getBoundingClientRect().top < limite) {
+      el.classList.add('in-view');
+      reveals.splice(i, 1);
+    }
+  }
+}
+
+function pedirChequeo() {
+  if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(chequearReveals);
+  }
+}
+
+window.addEventListener('scroll', pedirChequeo, { passive: true });
+window.addEventListener('resize', pedirChequeo);
 
 /* ---------- MAPA ---------- */
 document.getElementById('toggleMap').addEventListener('click', (e) => {
