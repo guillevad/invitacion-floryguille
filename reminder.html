@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>¡Falta poco! – Flor &amp; Guille</title>
+  <title>¡Falta poco! – Flor &amp; Guille</title>
   <meta name="description" content="Se acerca el 29 de noviembre. Sumá tu canción a la playlist y guardate el álbum de fotos." />
 
   <!-- Vista previa en WhatsApp / redes -->
@@ -56,7 +56,7 @@ body.locked { overflow: hidden; height: 100vh; }
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://i.imgur.com/sOa0kd5.jpg') center/cover no-repeat;
+  background: url('https://i.imgur.com/u3Efiak.jpg') center/cover no-repeat;
   filter: blur(6px) saturate(.9);
   transform: scale(1.1);
   opacity: .5;
@@ -270,81 +270,6 @@ summary {
 .orn .ln { flex: 1; height: 1px; background: rgba(197,157,123,.45); }
 .orn .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .8; }
 
-/* ---------- CRONOGRAMA ---------- */
-.fecha-grande {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  font-size: .82rem;
-  color: var(--muted);
-  margin-bottom: 26px;
-}
-.fecha-grande strong {
-  display: block;
-  font-size: clamp(1.45rem, 6vw, 1.9rem);
-  letter-spacing: .04em;
-  text-transform: none;
-  color: var(--ink);
-  font-weight: 400;
-  margin-top: 4px;
-}
-.agenda {
-  max-width: 340px;
-  margin: 0 auto;
-  position: relative;
-}
-.agenda::before {
-  content: "";
-  position: absolute;
-  left: 62px;
-  top: 10px;
-  bottom: 10px;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(197,157,123,.55), transparent);
-}
-.agenda-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-  padding: 14px 0;
-}
-.agenda-item .hora {
-  width: 62px;
-  flex-shrink: 0;
-  text-align: right;
-  padding-right: 16px;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: var(--accent);
-  line-height: 1.4;
-}
-.agenda-item .punto {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  background: var(--bg);
-  flex-shrink: 0;
-  margin: 7px 0 0 -4.5px;
-  position: relative;
-  z-index: 1;
-}
-.agenda-item .detalle { padding-left: 16px; }
-.agenda-item .detalle h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  font-size: 1.05rem;
-  line-height: 1.4;
-  margin: 0;
-}
-.agenda-item .detalle p {
-  margin: 2px 0 0;
-  font-size: .92rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
 /* ---------- UBICACIÓN ---------- */
 .lugar { text-align: center; }
 .lugar .nombre {
@@ -399,6 +324,15 @@ summary {
   display: block;
   height: auto;
 }
+/* ---------- ITINERARIO COMO IMAGEN ---------- */
+.itinerario-img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  height: auto;
+  border-radius: 12px;
+}
 #cronograma { padding-bottom: 8px; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -419,7 +353,7 @@ summary {
   </div>
 </div>
 
-<!-- Música de fondo: el archivo "Piano.mp3" tiene que estar en la misma carpeta que este index.html
+<!-- Música de fondo: el archivo "Piano.mp3" tiene que estar en la misma carpeta que este reminder.html
      (ojo con las mayúsculas: en Vercel "Piano.mp3" y "piano.mp3" no son lo mismo). -->
 <audio id="bgMusic" loop preload="auto" src="Piano.mp3"></audio>
 
@@ -449,34 +383,10 @@ summary {
   </div>
 </section>
 
-<!-- CRONOGRAMA -->
+<!-- ITINERARIO (IMAGEN) -->
+<!-- 👇 Reemplazá TU_CODIGO por el código que te dé Imgur al subir la imagen del itinerario -->
 <section class="card" id="cronograma">
-  <h2 class="titulo-seccion">Detalles <span class="script">del</span> encuentro</h2>
-  <div class="orn"><span class="ln"></span><span class="dot"></span><span class="ln"></span></div>
-
-  <p class="fecha-grande">
-    Nos casamos el
-    <strong>Domingo 29 de noviembre de 2026</strong>
-  </p>
-
-  <div class="agenda">
-    <div class="agenda-item">
-      <div class="hora">12:00</div>
-      <div class="punto"></div>
-      <div class="detalle">
-        <h3>Sí, quiero</h3>
-        <p>La ceremonia arranca puntual. Te esperamos unos minutos antes para no perderte nada.</p>
-      </div>
-    </div>
-    <div class="agenda-item">
-      <div class="hora">13:00</div>
-      <div class="punto"></div>
-      <div class="detalle">
-        <h3>Fiesta</h3>
-        <p>Brindis, comida, baile y todo lo que venga después 💃🕺.</p>
-      </div>
-    </div>
-  </div>
+  <img src="https://i.imgur.com/jcmQXDQ.jpg" alt="Itinerario de la boda" class="itinerario-img">
 </section>
 
 <!-- UBICACION -->
@@ -486,10 +396,6 @@ summary {
 
   <div class="lugar">
     <div class="nombre">Jano's San Miguel</div>
-    <p class="direccion">
-      Av. Gaspar Campos 2600<br>
-      San Miguel, Buenos Aires
-    </p>
     <p class="extra">Ceremonia y fiesta son en el mismo lugar.</p>
     <div style="margin-top:18px;">
       <a class="pill" href="#" id="toggleMap">Ver en mapa</a>
@@ -588,7 +494,7 @@ document.getElementById('entrarBtn').addEventListener('click', () => {
         if (v >= 0.45) clearInterval(fade);
       }, 90);
     }).catch(() => {
-      // Si no hay archivo de audio o el navegador lo bloquea, la invitación igual funciona.
+      // Si no hay archivo de audio o el navegador lo bloquea, la página igual funciona.
       musicToggle.classList.remove('show');
     });
   }
