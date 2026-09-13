@@ -15,7 +15,11 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&family=Parisienne&display=swap" rel="stylesheet">
+
+  <!-- Una sola tipografía para todo: Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f1f1f1;
@@ -23,14 +27,21 @@
   --ink: #1d1d1f;
   --muted: #6b7280;
   --accent: #c59d7b;
+  --fuente: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Todo el sitio usa la misma tipografía */
+body, input, select, textarea, button {
+  font-family: var(--fuente);
+}
+
 body {
-  font-family: Inter, system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.75;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 /* Bloquea el scroll mientras está la portada */
 body.locked { overflow: hidden; height: 100vh; }
@@ -79,19 +90,18 @@ body.locked { overflow: hidden; height: 100vh; }
 .gate-eyebrow {
   letter-spacing: .38em;
   text-transform: uppercase;
-  font-size: .7rem;
-  font-weight: 600;
+  font-size: .72rem;
+  font-weight: 500;
   color: var(--muted);
   margin-bottom: 14px;
 }
 .gate-names {
-  font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 10vw, 3.2rem);
+  font-weight: 400;
   line-height: 1.15;
   color: var(--ink);
 }
 .gate-date {
-  font-family: 'Playfair Display', serif;
   color: var(--accent);
   letter-spacing: .18em;
   font-size: .95rem;
@@ -105,7 +115,6 @@ body.locked { overflow: hidden; height: 100vh; }
   border-radius: 999px;
   background: var(--accent);
   color: #fff;
-  font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
   letter-spacing: .08em;
   cursor: pointer;
@@ -120,7 +129,7 @@ body.locked { overflow: hidden; height: 100vh; }
 }
 .gate-note {
   margin-top: 16px;
-  font-size: .8rem;
+  font-size: .85rem;
   color: var(--muted);
 }
 
@@ -172,7 +181,6 @@ header.hero {
   margin-top: 16px;
 }
 .countdown h2 {
-  font-family: 'Playfair Display', serif;
   color: var(--accent);
   margin-bottom: 12px;
   font-size: clamp(1.2rem, 4vw, 1.6rem);
@@ -190,12 +198,17 @@ header.hero {
   padding: 6px 6px;
   width: 60px;
   flex-shrink: 0;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  color: var(--muted);
+  line-height: 1.35;
 }
 .timer span {
   display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--accent);
+  line-height: 1.3;
 }
 /* GENERAL CARD */
 .card {
@@ -204,17 +217,23 @@ header.hero {
   padding: 20px;
   margin-top: 16px;
 }
-h2 { font-family: 'Playfair Display', serif; text-align: center; color: var(--accent); }
+h2 {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 600;
+  line-height: 1.35;
+}
 p { margin: 8px 0; }
 .center { text-align: center; }
 .pill {
   display: inline-block;
-  padding: 10px 16px;
+  padding: 11px 22px;
   border-radius: 999px;
   text-decoration: none;
   background: var(--accent);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: .04em;
   transition: all .15s ease;
 }
 .pill:hover { transform: translateY(-2px); }
@@ -238,6 +257,28 @@ summary {
   font-weight: 600;
   color: var(--accent);
 }
+details p { font-size: .98rem; }
+/* Datos bancarios */
+.datos-banco {
+  background: #fffdfa;
+  border: 1px solid rgba(197,157,123,.35);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: .95rem;
+  line-height: 1.9;
+}
+.datos-banco .etiqueta {
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .72rem;
+}
+.datos-banco .valor {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: .03em;
+}
 /* ---------- SECCIONES NUEVAS (SPOTIFY / FOTOS) ---------- */
 .accion {
   text-align: center;
@@ -251,9 +292,9 @@ summary {
 .accion .icono svg { width: 100%; height: 100%; }
 .accion p.bajada {
   color: var(--muted);
-  font-size: .97rem;
+  font-size: 1rem;
   max-width: 440px;
-  margin: 8px auto 18px;
+  margin: 10px auto 20px;
 }
 /* FOOTER DE IMAGEN */
 .mini-footer {
@@ -342,7 +383,6 @@ summary {
 </section>
 
 <!-- ITINERARIO (IMAGEN) -->
-<!-- 👇 Reemplazá TU_CODIGO por el código que te dé Imgur al subir la imagen del itinerario -->
 <section class="card reveal" id="cronograma">
   <img src="https://i.imgur.com/urvwusj.jpg" alt="Itinerario de la boda" class="itinerario-img">
 </section>
@@ -366,12 +406,15 @@ summary {
   </details>
   <details>
     <summary>¿Qué les regalo?</summary>
-    <p>Lo que más queremos es que nos acompañes. Sin embargo, si querés hacernos un regalo, podés colaborar con nuestra luna de miel.</p>
-    <p><strong>ALIAS ARS:</strong> GUILLEVADILLO<br>
-       <strong>ALIAS USD:</strong> GUILLEVADILLOUSD</p>
-    <p>Titular: VADILLO GUILLERMO HERNAN</p>
-    <p>Banco: BBVA</p>
-    <p>CUIT: 20-39068384-8</p>
+    <p>Lo que más queremos es que estés ahí. Tu presencia ya es el regalo.</p>
+    <p>Ahora, si tenías ganas de hacernos uno, podés ayudarnos a construir nuestra luna de miel. El día de la fiesta va a haber un <strong>buzón de cartas</strong> en el salón, por si preferís acercarlo en mano junto con unas palabras. Y si te queda más cómodo antes, acá están nuestros datos:</p>
+    <div class="datos-banco">
+      <div><span class="etiqueta">Alias ARS</span><br><span class="valor">GUILLEVADILLO</span></div>
+      <div><span class="etiqueta">Alias USD</span><br><span class="valor">GUILLEVADILLOUSD</span></div>
+      <div><span class="etiqueta">Titular</span><br><span class="valor">Vadillo Guillermo Hernán</span></div>
+      <div><span class="etiqueta">Banco</span><br><span class="valor">BBVA</span></div>
+      <div><span class="etiqueta">CUIT</span><br><span class="valor">20-39068384-8</span></div>
+    </div>
   </details>
   <details>
     <summary>¿Dónde estaciono?</summary>
